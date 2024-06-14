@@ -20,8 +20,7 @@ const userRoute = require("./routes/users");
 const profileRoute = require("./routes/profile");
 const multerRoute = require("./routes/multer");
 const postRoute = require("./routes/post");
-// const dbUrl = 'mongodb://127.0.0.1:27017/pinterest';
-const dbUrl = process.env.DB_URL;
+const dbUrl = 'mongodb://127.0.0.1:27017/pinterest';
 
 mongoose.connect(dbUrl)
 .then(() => {
