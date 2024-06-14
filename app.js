@@ -20,7 +20,7 @@ const userRoute = require("./routes/users");
 const profileRoute = require("./routes/profile");
 const multerRoute = require("./routes/multer");
 const postRoute = require("./routes/post");
-const dbUrl = 'mongodb://127.0.0.1:27017/pinterest';
+const dbUrl = process.env.DB_URL || 'mongodb://127.0.0.1:27017/pinterest';
 
 mongoose.connect(dbUrl)
 .then(() => {
@@ -39,9 +39,12 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'))
 
 
+const secret = process.env.SECRET || "somesecret"
+
+
 const store = new MongoStore({
     mongoUrl: dbUrl,
-    secret:"somesecret",
+    secret,
     touchAfter: 24 *60 * 60,
 });
 
@@ -51,7 +54,7 @@ store.on("error", function(e) {
 
 const sessionConfig = {
     store,
-    secret:"thisissecret",
+    secret,
     resave:false,
     saveUninitialized:false,
     cookie: {
