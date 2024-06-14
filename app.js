@@ -90,7 +90,7 @@ app.use("/",multerRoute);
 app.use("/",postRoute);
 
 app.get("/",(req,res) => {
-    res.render("/home")
+    res.render("home")
 })
 
 app.use((err, req, res, next) => {
