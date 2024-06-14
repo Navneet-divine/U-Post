@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="card mt-3 ms-3" style="width: 400px">
+  <form
+    action="/post/show/<%=post._id %>/<%=comment._id %>/edit?_method=PUT"
+    method="POST"
+    class="needs-validation"
+    novalidate
+  >
+    <div class="card-body">
+      <h4>Edit a Comment:</h4>
+      <div>
+        <label for="rating" class="form-label">Rating:</label>
+        <input type="range" class="form-range" id="rating" name="rating" />
+      </div>
+
+      <div>
+        <label for="comment" class="form-label">Comment:</label>
+        <textarea
+          class="form-control"
+          name="comment"
+          id="comment"
+          cols="30"
+          rows="3"
+          required
+        ></textarea>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please provide a description.</div>
+      </div>
+
+      <div class="me-2 mt-3">
+        <button class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </form>
+</div>

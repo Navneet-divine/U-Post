@@ -1,0 +1,30 @@
+nav{
+    border: 2px solid red;
+    height: 55px;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+}
+
+.left-section,.middle-section,.right-section{
+    width: 300px;
+    display: flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+.middle-section{
+    margin-right: 180px;
+    justify-content: center;
+    margin-left: 230px;
+}
+
+.right-section {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    margin-right: 10px;
+    margin-left: auto;
+}
+

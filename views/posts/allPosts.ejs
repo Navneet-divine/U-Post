@@ -1,0 +1,25 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="post-container container d-flex flex-wrap mt-5">
+  <% for(let post of posts) { %>
+  <div class="card me-3 mb-4" style="width: 18rem">
+    <img
+      width="200px"
+      height="200px"
+      src="<%= post.Image %>"
+      class="card-img-top"
+      alt="image"
+    />
+    <div class="card-body">
+      <h5 class="card-title text-secondary"><%= post.description %></h5>
+      <p>Submmited by - <%= post.author.username %></p>
+    </div>
+    <a
+      style="width: 100px"
+      href="/post/show/<%= post._id %>"
+      class="btn btn-primary mb-2 ms-2"
+      >View Post</a
+    >
+  </div>
+  <% } %>
+</div>

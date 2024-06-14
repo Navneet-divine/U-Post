@@ -1,0 +1,42 @@
+<% layout("layouts/boilerplate") %>
+<link rel="stylesheet" href="/stylesheets/register.css" />
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+/>
+
+<div class="main-container">
+  <div class="container">
+    <h1>Welcome to pinterest</h1>
+    <p class="text-secondary" style="margin-left: 100px">
+      Find new ideas to try
+    </p>
+  </div>
+
+  <form action="/register" method="POST">
+    <div class="d-flex flex-column">
+      <label for="username">Username:</label>
+      <input type="text" placeholder="Username" id="username" name="username" />
+
+      <label for="email">Email:</label>
+      <input type="text" placeholder="Email" id="email" name="email" />
+
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter password"
+        name="password"
+      />
+      <i class="fas fa-eye visibility-icon" id="visibilityToggle"></i>
+    </div>
+    <button class="btn btn-success">Login</button>
+  </form>
+
+  <p class="text-secondary" style="margin-left: 100px">
+    Already have an Accout? <a href="login">Login</a>
+  </p>
+</div>
+
+<script src="/javascripts/register.js"></script>

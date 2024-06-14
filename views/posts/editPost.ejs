@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container ms-5 mt-5">
+  <form
+    action="/post/edit/<%= post._id %>?_method=PUT"
+    method="POST"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <div class="mb-3">
+      <label for="image" class="form-label">Add Image:</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        name="image"
+        aria-describedby="emailHelp"
+      />
+    </div>
+
+    <div class="mb-3">
+      <div>
+        <label for="description" class="form-label">Description:</label>
+      </div>
+
+      <div class="form-group">
+        <textarea
+          name="description"
+          id="description"
+          class="form-control"
+          cols="30"
+          rows="5"
+        ></textarea>
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Please provide a description.</div>
+      </div>
+    </div>
+  </form>
+
+  <div style="display: inline-block">
+    <button type="submit" class="btn btn-primary">Edit Post</button>
+  </div>
+
+  <div style="display: inline-block">
+    <form action="/post/delete/<%= post._id %>?_method=DELETE" method="POST">
+      <button class="btn btn-danger">Delete Post</button>
+    </form>
+  </div>
+
+  <script src="/javascripts/editPost.js"></script>
+</div>

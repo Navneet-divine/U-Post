@@ -1,0 +1,58 @@
+<% layout("/layouts/boilerplate") %>
+<form
+  class="upload-form"
+  hidden
+  action="/fileupload"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <input type="file" name="profileImage" />
+</form>
+<link rel="stylesheet" href="../stylesheets/profile.css" />
+
+<div class="main-container">
+  <div class="profile-circle">
+    <div class="img-container">
+      <img class="profile-img" src="<%= user.profileImage %>" />
+    </div>
+
+    <div class="inner-container">
+      <h1 style="cursor: default"><%= currentUser.username %></h1>
+      <p style="cursor: default"><%=user.email %></p>
+      <form action="/profile/edit">
+        <button class="btn btn-success">Edit</button>
+      </form>
+
+      <form action="/post">
+        <button class="post-btn">ADD A NEW POST</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="post-container container d-flex flex-wrap">
+  <% user.posts.forEach((el) => { %>
+  <div class="card bg-secondary" style="width: 18rem">
+    <img
+      width="200px"
+      height="200px"
+      src="<%= el.Image %>"
+      class="card-img-top"
+      alt="image"
+    />
+    <div class="card-body">
+      <h5 class="card-title text-white"><%= el.description %></h5>
+      <p>Submmited by - <%= el.author.username %></p>
+      <div class="d-flex">
+        <div>
+          <form action="/post/edit/<%= el._id %>">
+            <button class="btn btn-primary">Update Post</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+
+<script src="/javascripts/profile.js"></script>
