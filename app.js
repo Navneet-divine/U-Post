@@ -89,10 +89,9 @@ app.use("/",profileRoute);
 app.use("/",multerRoute);
 app.use("/",postRoute);
 
-app.get("/login",(req,res) => {
-    res.render("/users/login")
+app.get("/",(req,res) => {
+    res.render("/home")
 })
-
 
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err;
